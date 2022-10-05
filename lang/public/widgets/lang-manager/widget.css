@@ -1,0 +1,23 @@
+/* 
+ 
+    Copyright 2022 HolyCorn Software
+    The HCTS Project
+    This stylesheet makes light touches on the looks of the lang-manager widget
+*/
+
+
+
+
+.hc-hcts-lang-manager .hc-generic-listings {
+    max-height:calc(var(--dashboard-content-available-height) - 9.73em);
+}
+
+
+.hc-hcts-lang-manager .hc-generic-listings-main table{
+    table-layout:auto;
+}
+
+.hc-hcts-lang-manager .hc-generic-listings-main table>tbody tr td:last-child{
+
+    width:70%;
+}

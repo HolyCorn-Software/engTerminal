@@ -1,0 +1,77 @@
+/*  
+    Copyright 2022 HolyCorn Software
+    The HCTS Project
+    This stylesheet beautifies the manage-languages widget, which is a part of the lang-manager actions widget
+*/
+
+.hc-hcts-language-manager-manage-languages>.container{
+    display:flex;
+    flex-direction:column;
+    gap:1em;
+}
+
+.hc-hcts-language-manager-manage-languages>.container >.actions{
+    display:flex;
+    justify-content: space-between;
+    gap:1em;
+}
+
+.hc-hcts-language-manager-manage-languages>.container >.actions >.hc-action-button{
+    flex-grow:1;
+}
+
+.hc-hcts-language-manager-manage-languages>.container>.entries {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding-top: 1em;
+}
+
+.hc-hcts-language-manager-manage-languages-language-entry>.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    box-shadow: 0px 0px 12px lightgrey;
+    border-radius: 12px;
+}
+
+.hc-hcts-language-manager-manage-languages-language-entry>.container>.main {
+    display: flex;
+    gap: 2em;
+    padding: 1em;
+    justify-content: space-between;
+}
+
+.hc-hcts-language-manager-manage-languages-language-entry>.container>.main>.data-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125em;
+}
+
+.hc-hcts-language-manager-manage-languages-language-entry>.container>.main>.data-section>.label {
+    color: #0c67b7;
+    font-weight:bolder;
+
+}
+
+.hc-hcts-language-manager-manage-languages-language-entry>.container>.main>.data-section>.code {
+    color: #1e4567;
+
+}
+.hc-hcts-language-manager-manage-languages-language-entry>.container>.main>.actions-section >.action {
+    padding:0.5em;
+    aspect-ratio:1/1;
+    display:flex;
+    place-items:center;
+    transition:0.25s 0.125s;
+}
+
+.hc-hcts-language-manager-manage-languages-language-entry>.container>.main>.actions-section >.action > img {
+    width: 1em;
+}
+
+.hc-hcts-language-manager-manage-languages-language-entry>.container>.main>.actions-section >.action:hover{
+    border-radius:50%;
+    box-shadow:0px 0px 12px rgb(191, 196, 206);
+    cursor:pointer;
+}

@@ -1,0 +1,62 @@
+/*  
+    Copyright 2022 HolyCorn Software
+    The HCTS Project
+    This stylesheet determines the looks of the lang-manger actions widget.
+*/
+
+.hc-hcts-language-manager-actions >.container{
+    padding-top:2em;
+    align-items:flex-start;
+    display:flex;
+    flex-direction: column;
+}
+
+
+.hc-hcts-language-manager-actions >.container >.main{
+    display:inline-flex;
+    padding-right:1em;
+    font-size:1.25em;
+    gap:1em;
+    flex-direction: column;
+}
+
+.hc-hcts-language-manager-actions >.container >.main >.actions{
+    font-size:0.75em;
+    display:flex;
+    gap:1em;
+    align-items: center;
+}
+
+
+
+.hc-hcts-language-manager-actions >.container >.main >.top{
+    display:flex;
+    gap:1em;
+    align-items:center;
+    justify-items: center;
+    justify-content:center;
+    position:relative;
+    padding-bottom:1em;
+}
+
+.hc-hcts-language-manager-actions >.container >.main >.top:after{
+    content:'';
+    position:absolute;
+    width:100%;
+    top:100%;
+    left:0px;
+    border:1px solid rgb(224, 224, 224);
+
+}
+
+
+.hc-hcts-language-manager-actions >.container >.main >:is(.top, .actions) .hc-action-button >.container{
+    font-size:1rem;
+    background-color:#e6e9ee;
+    color:black;
+    border-radius:0.75em;
+}
+
+.hc-hcts-language-manager-actions >.container >.main >.top >.language-select{
+    color:rgb(65 105 134);
+}
