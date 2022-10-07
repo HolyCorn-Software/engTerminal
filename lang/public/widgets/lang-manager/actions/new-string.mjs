@@ -7,7 +7,7 @@
 
 import LanguageManagerActions from "./widget.mjs";
 import engTerminal from "/$/engTerminal/static/rpc.mjs";
-import { PopupForm } from "/$/system/static/lib/hc/popup-form/form.js";
+import PopupForm from "/$/system/static/html-hc/widgets/popup-form/form.mjs";
 
 
 export default class NewLanguageString extends PopupForm {

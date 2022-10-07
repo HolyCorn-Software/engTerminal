@@ -9,11 +9,11 @@ import LanguageManagerActions from "./actions/widget.mjs";
 import engTerminal from "/$/engTerminal/static/rpc.mjs";
 import systemRpc from "/$/system/static/comm/rpc/system-rpc.mjs";
 import { handle } from "/$/system/static/errors/error.mjs";
-import GenericListings from "/$/system/static/lib/hc/generic-listings/widget.mjs";
-import { hc } from "/$/system/static/lib/hc/lib/index.js";
-import { AlarmObject } from "/$/system/static/lib/hc/lib/util/alarm.js";
-import { Widget } from "/$/system/static/lib/hc/lib/widget.js";
-import { PopupForm } from "/$/system/static/lib/hc/popup-form/form.js";
+import GenericListings from "/$/system/static/html-hc/widgets/generic-listings/widget.mjs";
+import { hc } from "/$/system/static/html-hc/lib/widget/index.mjs";
+import AlarmObject from "/$/system/static/html-hc/lib/alarm/alarm.mjs"
+import { Widget } from "/$/system/static/html-hc/lib/widget/index.mjs";
+import PopupForm from "/$/system/static/html-hc/widgets/popup-form/form.mjs";
 
 
 hc.importModuleCSS(import.meta.url)

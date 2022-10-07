@@ -5,7 +5,7 @@
  */
 
 import { LanguageConfig, SummedLanguageStrings } from "system/base/lang/types"
-import { AlarmObject } from "/$/system/static/lib/hc/lib/util/alarm-types"
+import {AlarmObject} from "/$/system/static/html-hc/lib/alarm/alarm-types";
 
 
 export interface LanguageManagerStateDataStructure {

@@ -8,11 +8,11 @@ import LanguageManager from "../widget.mjs";
 import ManageLanguages from "./manage-languages/widget.mjs";
 import NewLanguageString from "./new-string.mjs";
 import engTerminal from "/$/engTerminal/static/rpc.mjs";
-import { ActionButton } from "/$/system/static/lib/hc/action-button/button.js";
-import BrandedBinaryPopup from "/$/system/static/lib/hc/branded-binary-popup/widget.mjs";
-import { InlineSelect } from "/$/system/static/lib/hc/inline-select/index.js";
-import { hc } from "/$/system/static/lib/hc/lib/index.js";
-import { Widget } from "/$/system/static/lib/hc/lib/widget.js";
+import BrandedBinaryPopup from "/$/system/static/html-hc/widgets/branded-binary-popup/widget.mjs";
+import { hc } from "/$/system/static/html-hc/lib/widget/index.mjs";
+import { Widget } from "/$/system/static/html-hc/lib/widget/index.mjs";
+import ActionButton from "/$/system/static/html-hc/widgets/action-button/button.mjs";
+import { InlineSelect } from "/$/system/static/html-hc/widgets/inline-select/index.mjs";
 
 
 
