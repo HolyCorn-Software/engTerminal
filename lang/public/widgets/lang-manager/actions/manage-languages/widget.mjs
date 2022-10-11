@@ -10,7 +10,6 @@ import LanguageCreatePopup from "./create.mjs";
 import engTerminal from "/$/engTerminal/static/rpc.mjs";
 import ActionButton from "/$/system/static/html-hc/widgets/action-button/button.mjs"
 import BrandedBinaryPopup from "/$/system/static/html-hc/widgets/branded-binary-popup/widget.mjs";
-// import { HCTSBrandedPopup } from "/$/system/static/lib/hc/branded-popup/popup.js";
 import { hc, Widget } from "/$/system/static/html-hc/lib/widget/index.mjs";
 import HCTSBrandedPopup  from "/$/system/static/html-hc/widgets/branded-popup/popup.mjs";
 
