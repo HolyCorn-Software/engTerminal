@@ -5,8 +5,6 @@
  */
 
 import muser_common from "muser_common";
-import { FacultyPlatform } from "../../../system/lib/libFaculty/platform.mjs";
-
 
 
 

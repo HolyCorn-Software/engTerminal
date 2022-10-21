@@ -9,7 +9,7 @@
 
 
 .hc-hcts-lang-manager .hc-generic-listings {
-    max-height:calc(var(--dashboard-content-available-height) - 9.73em);
+    max-height:calc(var(--dashboard-content-available-height) - 1.73em);
 }
 
 
