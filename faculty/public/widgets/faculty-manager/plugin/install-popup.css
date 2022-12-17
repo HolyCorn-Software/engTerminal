@@ -1,0 +1,20 @@
+/*  
+    Copyright 2022 HolyCorn Software
+    The Engineer Terminal
+    This stylesheet (install-popup.css) controls the looks of the install-popup widget
+    The install-popup widget allows the engineer to install a plugin in a faculty
+*/
+
+.hc-engTerminal-faculty-plugin-manager-install-popup .hc-multi-flex-form>.container{
+    padding-bottom:0px;
+    padding-top:0px;
+}
+
+.hc-engTerminal-faculty-plugin-manager-install-popup .hc-multi-flex-form>.container>.hc-multi-flex-form-item{
+    padding-top:0px;
+    padding-bottom:0px;
+}
+
+.hc-engTerminal-faculty-plugin-manager-install-popup >.container >.action{
+    padding-top:1.5em;
+}

@@ -1,0 +1,12 @@
+/*  
+    Copyright 2022 HolyCorn Software
+    The Engineer Terminal
+    This stylesheet acts on the last-error widget of the plugin manager, which allows an engineer to view the last error of a plugin
+*/
+
+.hc-engTerminal-plugin-manager-item-last-error {
+    padding-top:2em;
+    max-width:clamp(25vw, 550px, 85vw);
+    font-family:monospace;
+    color:rgb(145, 12, 67);
+}

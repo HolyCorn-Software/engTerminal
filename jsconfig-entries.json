@@ -1,0 +1,15 @@
+{
+    "compilerOpions": {
+        "paths": {
+            "/$/engTerminal/faculty/static/*": [
+                "faculty/engTerminal/faculty/public/*"
+            ],
+            "/$/engTerminal/lang/static/*": [
+                "faculty/engTerminal/lang/public/*"
+            ],
+            "/$/engTerminal/static/*":[
+                "faculty/engTerminal/public/*"
+            ]
+        }
+    }
+}

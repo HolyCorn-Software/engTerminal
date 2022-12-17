@@ -1,0 +1,47 @@
+/*  
+    Copyright 2022 HolyCorn Software
+    The Engineer Terminal
+    This stylesheet acts on the PluginManagementActions widget
+*/
+
+
+.hc-engTerminal-plugin-manager-item-actions>.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding-top:1em;
+    align-items:center;
+}
+
+.hc-engTerminal-plugin-manager-item-actions>.container:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0.025em;
+    top:-0.25em;
+    border-radius: 0.5em;
+    background-color: rgb(20, 37, 44);
+}
+
+
+.hc-engTerminal-plugin-manager-item-actions>.container>.main {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    justify-content: space-between;
+    font-size: 0.85em;
+}
+.hc-engTerminal-plugin-manager-item-actions>.container>.main >.hc-action-button:last-child{
+    width:100%;
+}
+.hc-engTerminal-plugin-manager-item-actions>.container>.main >.hc-action-button:last-child >.container{
+    border-radius:12px;
+}
+
+
+.hc-engTerminal-plugin-manager-item-actions .hc-dual-switch>.container>.track::after{
+    padding-left:0.75em;
+}
+.hc-engTerminal-plugin-manager-item-actions .hc-dual-switch>.container>.track::before{
+    left:-1em;
+}

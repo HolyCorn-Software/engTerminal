@@ -7,6 +7,10 @@
 
 import EngineerTerminalPublicMethods from "./terminals/public.mjs";
 import { FacultyPublicJSONRPC } from "../../system/comm/rpc/faculty-public-rpc.mjs";
+import { permissions as langPermissions } from "./lang/terminal.mjs";
+import { permissions as facultyPermissions } from "./faculty/terminal.mjs";
+import muser_common from "muser_common";
+
 
 
 const faculty = FacultyPlatform.get()
@@ -29,7 +33,7 @@ export async function init() {
 
     //Make public files available
 
-    for (let path of ['lang', undefined]) {
+    for (let path of ['lang', 'faculty', undefined]) {
 
         //So, for example: lang/public will be available at server.com/$/engTerminal/lang/static/
 
@@ -40,7 +44,7 @@ export async function init() {
                 refFolder: `./${path ? `${path}/` : ''}public/`
             },
             import.meta.url
-        ).add(`./${path ? `${path}/`: ''}public/`)
+        ).add(`./${path ? `${path}/` : ''}public/`)
 
     }
 
@@ -70,6 +74,10 @@ export async function init() {
         }
     );
 
+
+    for (const permission of [...langPermissions, ...facultyPermissions]) {
+        (await muser_common.getConnection()).permissions.data.createPermission(permission)
+    }
 
 
 
