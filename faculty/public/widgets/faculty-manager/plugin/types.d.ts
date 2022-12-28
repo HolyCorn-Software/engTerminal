@@ -4,7 +4,7 @@
  * This module (types) contains type definitions used by the plugin widget of the faculty-manager widget
  */
 
-import { PluginStatus } from "system/lib/libFaculty/plugins/types";
+import { PluginStatus } from "system/lib/libFaculty/plugin/types";
 import { AlarmObject } from "/$/system/static/html-hc/lib/alarm/alarm-types";
 
 
