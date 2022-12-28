@@ -1,5 +1,12 @@
 {
     "label": "Engineer Terminal",
     "name": "engTerminal",
-    "init": "./exec.mjs"
+    "init": "./exec.mjs",
+    "http": {
+        "staticPaths": {
+            "${fPath}/static/": "./public",
+            "${fPath}/lang/static/": "./lang/public",
+            "${fPath}/faculty/static/": "./faculty/public"
+        }
+    }
 }

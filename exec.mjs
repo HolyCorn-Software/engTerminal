@@ -31,23 +31,6 @@ export default async function init() {
         }
     )
 
-    //Make public files available
-
-    for (let path of ['lang', 'faculty', undefined]) {
-
-        //So, for example: lang/public will be available at server.com/$/engTerminal/lang/static/
-
-        new StrictFileServer(
-            {
-                http,
-                urlPath: `/${path ? `${path}/` : ''}static/`,
-                refFolder: `./${path ? `${path}/` : ''}public/`
-            },
-            import.meta.url
-        ).add(`./${path ? `${path}/` : ''}public/`)
-
-    }
-
     //Finally, make public methods available
     faculty.remote.public = new EngineerTerminalPublicMethods()
 
