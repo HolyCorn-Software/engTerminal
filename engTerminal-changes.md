@@ -1,3 +1,3 @@
 .
 
-Added useful icons that other faculties can use
+Updated to the modern style of exporting the init function

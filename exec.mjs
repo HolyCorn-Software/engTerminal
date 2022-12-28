@@ -16,7 +16,7 @@ import muser_common from "muser_common";
 const faculty = FacultyPlatform.get()
 
 
-export async function init() {
+export default async function init() {
 
 
 
