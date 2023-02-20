@@ -8,5 +8,29 @@
             "${fPath}/lang/static/": "./lang/public",
             "${fPath}/faculty/static/": "./faculty/public"
         }
+    },
+    "backend_dashboard": {
+        "admin": [
+            {
+                "label": "Engineer Terminal",
+                "name": "engineerTerminal",
+                "icon": "/$/engTerminal/static/res/engTerminal.png",
+                "items": {
+                    "engineerTerminal$faculties": {
+                        "label": "Faculties",
+                        "group": "engineerTerminal",
+                        "view": "/$/engTerminal/faculty/static/widgets/faculty-manager/widget.mjs",
+                        "icon": "/$/engTerminal/faculty/static/widgets/faculty-manager/res/faculty.png"
+                    },
+                    "engineerTerminal$lang":{
+                        "label": "Language",
+                        "name": "engineerTerminal$Lang",
+                        "group": "engineerTerminal",
+                        "view": "/$/engTerminal/lang/static/widgets/lang-manager/widget.mjs",
+                        "icon": "/$/engTerminal/lang/static/res/language.png"
+                    }
+                }
+            }
+        ]
     }
 }

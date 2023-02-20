@@ -1,3 +1,3 @@
 .
 
-Added icons which may be useful to other faculties.
+Added ability to automatically create options on a backend_dashboard, for managing the platform
