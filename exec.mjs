@@ -6,7 +6,6 @@
 
 
 import EngineerTerminalPublicMethods from "./terminals/public.mjs";
-import { FacultyPublicJSONRPC } from "../../system/comm/rpc/faculty-public-rpc.mjs";
 import { permissions as langPermissions } from "./lang/terminal.mjs";
 import { permissions as facultyPermissions } from "./faculty/terminal.mjs";
 import muser_common from "muser_common";

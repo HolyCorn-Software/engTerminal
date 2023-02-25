@@ -132,7 +132,7 @@ export default class PluginManagerTerminal {
 
 /**
  * 
- * @param {import("system/comm/rpc/faculty-public-rpc.mjs").FacultyPublicJSONRPC} client 
+ * @param {FacultyPublicJSONRPC} client 
  */
 async function checkPermissions(client) {
 

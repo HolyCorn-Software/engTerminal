@@ -4,7 +4,6 @@
  * This module provides publicly usable methods related to platform management, from the Engineer Terminal
  */
 
-import { FacultyPublicMethods } from "../../../system/comm/rpc/faculty-public-methods.mjs";
 import FacultyManagerTerminal from "../faculty/terminal.mjs";
 import EngLangPublicMethods from "../lang/terminal.mjs";
 
