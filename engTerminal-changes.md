@@ -1,3 +1,3 @@
 .
 
-Removed unnecessary imports to take advantage of new platform globals
+Fixed issue coming from ommissions made during the recent switch to faculty-managed remote methods
