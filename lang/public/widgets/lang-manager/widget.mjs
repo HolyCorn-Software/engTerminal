@@ -6,14 +6,13 @@
  */
 
 import LanguageManagerActions from "./actions/widget.mjs";
-import engTerminal from "/$/engTerminal/static/rpc.mjs";
-import systemRpc from "/$/system/static/comm/rpc/system-rpc.mjs";
 import { handle } from "/$/system/static/errors/error.mjs";
 import GenericListings from "/$/system/static/html-hc/widgets/generic-listings/widget.mjs";
 import { hc } from "/$/system/static/html-hc/lib/widget/index.mjs";
 import AlarmObject from "/$/system/static/html-hc/lib/alarm/alarm.mjs"
 import { Widget } from "/$/system/static/html-hc/lib/widget/index.mjs";
 import PopupForm from "/$/system/static/html-hc/widgets/popup-form/form.mjs";
+import hcRpc from "/$/system/static/comm/rpc/aggregate-rpc.mjs";
 
 
 hc.importModuleCSS(import.meta.url)
@@ -150,7 +149,7 @@ export default class LanguageManager extends Widget {
                                                 positive: `Update`,
                                                 negative: `Cancel`,
                                                 execute: async () => {
-                                                    await engTerminal.lang.setStrings({
+                                                    await hcRpc.engTerminal.lang.setStrings({
                                                         [code]: {
                                                             [lang]: popup.value.content
                                                         }
@@ -192,8 +191,8 @@ export default class LanguageManager extends Widget {
         this.loadBlock()
         try {
 
-            this.statedata.languages = await systemRpc.system.lang.getLanguages()
-            this.statedata.strings = await systemRpc.system.lang.getStrings()
+            this.statedata.languages = await hcRpc.system.lang.getLanguages()
+            this.statedata.strings = await hcRpc.system.lang.getStrings()
             const firstLanguage = this.statedata.languages[0]?.code
 
             if (firstLanguage) {

@@ -7,12 +7,12 @@
 import LanguageManager from "../widget.mjs";
 import ManageLanguages from "./manage-languages/widget.mjs";
 import NewLanguageString from "./new-string.mjs";
-import engTerminal from "/$/engTerminal/static/rpc.mjs";
 import BrandedBinaryPopup from "/$/system/static/html-hc/widgets/branded-binary-popup/widget.mjs";
 import { hc } from "/$/system/static/html-hc/lib/widget/index.mjs";
 import { Widget } from "/$/system/static/html-hc/lib/widget/index.mjs";
 import ActionButton from "/$/system/static/html-hc/widgets/action-button/button.mjs";
 import { InlineSelect } from "/$/system/static/html-hc/widgets/inline-select/index.mjs";
+import hcRpc from "/$/system/static/comm/rpc/aggregate-rpc.mjs";
 
 
 
@@ -86,7 +86,7 @@ export default class LanguageManagerActions extends Widget {
 
 
 
-        /** @type {[ActionButton]} */ this.stringActions
+        /** @type {ActionButton[]} */ this.stringActions
         this.pluralWidgetProperty(
             {
                 selector: ['', ...ActionButton.classList].join('.'),
@@ -123,7 +123,7 @@ export default class LanguageManagerActions extends Widget {
                                 negative: `Go back`,
                                 positive: `Yes, delete!`,
                                 execute: async () => {
-                                    await engTerminal.lang.deleteStrings({
+                                    await hcRpc.engTerminal.lang.deleteStrings({
                                         codes: selected,
                                         lang: currentLang
                                     });

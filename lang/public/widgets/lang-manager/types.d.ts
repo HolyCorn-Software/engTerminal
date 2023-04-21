@@ -5,16 +5,15 @@
  */
 
 import { LanguageConfig, SummedLanguageStrings } from "system/base/lang/types"
-import {AlarmObject} from "/$/system/static/html-hc/lib/alarm/alarm-types";
 
 
 export interface LanguageManagerStateDataStructure {
 
     strings: SummedLanguageStrings
 
-    languages: [LanguageConfig]
+    languages: LanguageConfig[]
 
 }
 
 
-export type LanguageManagerStateData = AlarmObject<LanguageManagerStateDataStructure>
+export type LanguageManagerStateData = htmlhc.lib.alarm.AlarmObject<LanguageManagerStateDataStructure>

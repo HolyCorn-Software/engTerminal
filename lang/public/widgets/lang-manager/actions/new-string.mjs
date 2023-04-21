@@ -6,7 +6,7 @@
  */
 
 import LanguageManagerActions from "./widget.mjs";
-import engTerminal from "/$/engTerminal/static/rpc.mjs";
+import hcRpc from "/$/system/static/comm/rpc/aggregate-rpc.mjs";
 import PopupForm from "/$/system/static/html-hc/widgets/popup-form/form.mjs";
 
 
@@ -46,7 +46,7 @@ export default class NewLanguageString extends PopupForm {
                         throw new Error(`Sorry but, there seems to be no language currently selected. Go to the language select option, and select a language.`)
                     }
 
-                    await engTerminal.lang.setStrings({
+                    await hcRpc.engTerminal.lang.setStrings({
                         [this.value.code]: {
                             [currentLang]: this.value.content
                         }

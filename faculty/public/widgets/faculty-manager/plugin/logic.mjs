@@ -7,10 +7,9 @@
 import FacultyManager from "../widget.mjs";
 import InstallPopup from "./install-popup.mjs";
 import PluginItem from "./item.mjs";
-import engTerminal from "/$/engTerminal/static/rpc.mjs";
+import hcRpc from "/$/system/static/comm/rpc/aggregate-rpc.mjs";
 import { handle } from "/$/system/static/errors/error.mjs";
 import AlarmObject from "/$/system/static/html-hc/lib/alarm/alarm.mjs";
-
 
 /**
  * This method sets up the PluginManager widget to manage the plugins of a given faculty
@@ -40,9 +39,7 @@ async function addPlugins(widget, faculty) {
 
 
             try {
-                const plugins = (await engTerminal.faculty.plugin.getPlugins({ faculty }))[faculty]
-
-                console.log(`The plugins: `, plugins)
+                const plugins = (await hcRpc.engTerminal.faculty.plugin.getPlugins({ faculty }))[faculty]
 
                 /**
                  * This method returns a unique id derrived from the properties of the plugin
@@ -62,7 +59,7 @@ async function addPlugins(widget, faculty) {
                         {
                             id: pluginID(plugin),
                             custom_html: new PluginItem(new AlarmObject({ data: plugin })).html,
-                            parent: `${faculty}$plugin`
+                            parent: `faculty-${faculty}$plugins`
                         }
                     )
 
@@ -88,7 +85,7 @@ function addCreateOption(widget, faculty) {
 
 
     widget.explorer.addEventListener('draw', () => {
-        if (widget.explorer.statedata.current_path == `${faculty}$plugin`) {
+        if (widget.explorer.statedata.current_path == `faculty-${faculty}$plugins`) {
             widget.explorer.stageActions.push(
                 {
                     label: `Install Plugin`,

@@ -4,14 +4,13 @@
  * This widget (install-popup) allows an engineer to install a plugin in a faculty
  */
 
-import engTerminal from "/$/engTerminal/static/rpc.mjs";
+import hcRpc from "/$/system/static/comm/rpc/aggregate-rpc.mjs";
 import { handle } from "/$/system/static/errors/error.mjs";
 import { hc } from "/$/system/static/html-hc/lib/widget/index.mjs";
 import ActionButton from "/$/system/static/html-hc/widgets/action-button/button.mjs";
 import HCTSBrandedPopup from "/$/system/static/html-hc/widgets/branded-popup/popup.mjs";
 import { MultiFlexFormConfiguration } from "/$/system/static/html-hc/widgets/multi-flex-form/config.mjs";
 import MultiFlexForm from "/$/system/static/html-hc/widgets/multi-flex-form/flex.mjs";
-
 
 
 export default class InstallPopup extends HCTSBrandedPopup {
@@ -144,7 +143,7 @@ export default class InstallPopup extends HCTSBrandedPopup {
                     }
                     this.loadBlock()
                     try {
-                        await engTerminal.faculty.plugin.installPlugin({ faculty: this.faculty, url: this.dataForm.value.url })
+                        await hcRpc.engTerminal.faculty.plugin.installPlugin({ faculty: this.faculty, url: this.dataForm.value.url })
                         this.action.state = 'success'
                         installed = true
                         this.dispatchEvent(new CustomEvent('success'))

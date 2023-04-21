@@ -5,7 +5,7 @@
  */
 
 import PluginManagementActions from "./widget.mjs";
-import engTerminal from "/$/engTerminal/static/rpc.mjs";
+import hcRpc from "/$/system/static/comm/rpc/aggregate-rpc.mjs";
 import { handle } from "/$/system/static/errors/error.mjs";
 import ActionButton from "/$/system/static/html-hc/widgets/action-button/button.mjs";
 import BrandedBinaryPopup from "/$/system/static/html-hc/widgets/branded-binary-popup/widget.mjs";
@@ -56,9 +56,9 @@ export default class StartButton extends ActionButton {
                                         return;
                                     }
 
-                                    await engTerminal.faculty.plugin.stop({ faculty: pluginData.descriptor.faculty, plugin: pluginData.descriptor.name })
+                                    await hcRpc.engTerminal.faculty.plugin.stop({ faculty: pluginData.descriptor.faculty, plugin: pluginData.descriptor.name })
                                 } else {
-                                    await engTerminal.faculty.plugin.start({ faculty: pluginData.descriptor.faculty, plugin: pluginData.descriptor.name })
+                                    await hcRpc.engTerminal.faculty.plugin.start({ faculty: pluginData.descriptor.faculty, plugin: pluginData.descriptor.name })
                                 }
                             } catch (e) {
 
@@ -66,7 +66,7 @@ export default class StartButton extends ActionButton {
                             }
 
                             try {
-                                const thisPlugin = (await engTerminal.faculty.plugin.getPlugins({ faculty: pluginData.descriptor.faculty }))[pluginData.descriptor.faculty].find(x => x.descriptor.name === pluginData.descriptor.name)
+                                const thisPlugin = (await hcRpc.engTerminal.faculty.plugin.getPlugins({ faculty: pluginData.descriptor.faculty }))[pluginData.descriptor.faculty].find(x => x.descriptor.name === pluginData.descriptor.name)
                                 Object.assign(pluginData, thisPlugin)
                             } catch { }
 

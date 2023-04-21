@@ -8,13 +8,14 @@
 import StartButton from "./start-button.mjs";
 import CredentialsInputPopup from "./credentials-input.mjs";
 import EnableSwitch from "./enable-switch.mjs";
-import engTerminal from "/$/engTerminal/static/rpc.mjs";
 import { handle } from "/$/system/static/errors/error.mjs";
 import { hc, Widget } from "/$/system/static/html-hc/lib/widget/index.mjs";
 import ActionButton from "/$/system/static/html-hc/widgets/action-button/button.mjs";
 import BrandedBinaryPopup from "/$/system/static/html-hc/widgets/branded-binary-popup/widget.mjs";
 import HCTSBrandedPopup from "/$/system/static/html-hc/widgets/branded-popup/popup.mjs";
 import DualSwitch from "/$/system/static/html-hc/widgets/dual-switch/switch.mjs";
+import hcRpc from "/$/system/static/comm/rpc/aggregate-rpc.mjs";
+
 
 
 
@@ -75,7 +76,7 @@ export default class PluginManagementActions extends Widget {
                                     positive: `Yes!`,
                                     negative: `No!`,
                                     execute: async () => {
-                                        const warning = await engTerminal.faculty.plugin.uninstall({ plugin: plugin.descriptor.name, faculty: plugin.descriptor.faculty })
+                                        const warning = await hcRpc.engTerminal.faculty.plugin.uninstall({ plugin: plugin.descriptor.name, faculty: plugin.descriptor.faculty })
                                         if (warning) {
                                             new HCTSBrandedPopup(
                                                 {
@@ -101,6 +102,7 @@ export default class PluginManagementActions extends Widget {
             new ActionButton(
                 {
                     content: `Credentials`,
+                    state: plugin.descriptor.credentials?.form ? 'initial' : 'disabled',
                     onclick: () => {
                         new CredentialsInputPopup(plugin).show()
                     }

@@ -5,7 +5,7 @@
 */
 
 import ManageLanguages from "./widget.mjs";
-import engTerminal from "/$/engTerminal/static/rpc.mjs";
+import hcRpc from "/$/system/static/comm/rpc/aggregate-rpc.mjs";
 import PopupForm from "/$/system/static/html-hc/widgets/popup-form/form.mjs";
 
 
@@ -56,7 +56,7 @@ export default class LanguageCreatePopup extends PopupForm {
             label: this.value.label
         };
         
-        await engTerminal.lang.createLanguage(languageData);
+        await hcRpc.engTerminal.lang.createLanguage(languageData);
 
         this.manageLangs.advancedThis.manager.statedata.languages.push(languageData)
     }

@@ -4,7 +4,8 @@
  * This module (plugin.terminal) allows an engineer to manage the plugins of a faculty
  */
 
-import muser_common from "muser_common"
+import checkPermissions from "./checkPermissions.mjs"
+
 
 
 
@@ -127,19 +128,3 @@ export default class PluginManagerTerminal {
 }
 
 
-
-
-
-/**
- * 
- * @param {FacultyPublicJSONRPC} client 
- */
-async function checkPermissions(client) {
-
-    await muser_common.whitelisted_permission_check(
-        {
-            userid: (await muser_common.getUser(client)).id,
-            permissions: ['permissions.engTerminal.faculty.manage']
-        }
-    )
-}

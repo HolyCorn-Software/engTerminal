@@ -1,0 +1,16 @@
+/* 
+    Copyright 2023 HolyCorn Software
+    The Engineer Terminal
+    This stylesheet is concerned with the look so of the accordion used for managing settings
+ */
+
+
+.hc-faculty-managed-settings-item-accordion-label {
+    display: flex;
+    gap: 1em;
+    align-items:center;
+}
+
+.hc-faculty-managed-settings-item-accordion-label>img {
+    height: 1.5em;
+}

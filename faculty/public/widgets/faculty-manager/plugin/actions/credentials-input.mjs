@@ -4,7 +4,7 @@
  * This widget allows an Engineer to input credentials for a plugin
  */
 
-import engTerminal from "/$/engTerminal/static/rpc.mjs";
+import hcRpc from "/$/system/static/comm/rpc/aggregate-rpc.mjs";
 import { handle } from "/$/system/static/errors/error.mjs";
 import PopupForm from "/$/system/static/html-hc/widgets/popup-form/form.mjs";
 
@@ -25,7 +25,7 @@ export default class CredentialsInputPopup extends PopupForm {
                 positive: 'Update',
                 negative: 'Cancel',
                 execute: async () => {
-                    await engTerminal.faculty.plugin.setCredentials({ faculty: this[plugin].descriptor.faculty, plugin: this[plugin].descriptor.name, credentials: this.value })
+                    await hcRpc.engTerminal.faculty.plugin.setCredentials({ faculty: this[plugin].descriptor.faculty, plugin: this[plugin].descriptor.name, credentials: this.value })
                 },
                 form: pluginData.descriptor.credentials.form
             }
@@ -43,7 +43,7 @@ export default class CredentialsInputPopup extends PopupForm {
             await this.loadWhilePromise(
                 (
                     async () => {
-                        const credentials = await engTerminal.faculty.plugin.getCredentials({ faculty: this[plugin].descriptor.faculty, plugin: this[plugin].descriptor.name })
+                        const credentials = await hcRpc.engTerminal.faculty.plugin.getCredentials({ faculty: this[plugin].descriptor.faculty, plugin: this[plugin].descriptor.name })
                         this.value = credentials || {}
                     }
                 )()

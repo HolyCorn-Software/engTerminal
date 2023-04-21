@@ -7,11 +7,11 @@
 
 import LanguageManagerActions from "../widget.mjs";
 import LanguageCreatePopup from "./create.mjs";
-import engTerminal from "/$/engTerminal/static/rpc.mjs";
 import ActionButton from "/$/system/static/html-hc/widgets/action-button/button.mjs"
 import BrandedBinaryPopup from "/$/system/static/html-hc/widgets/branded-binary-popup/widget.mjs";
 import { hc, Widget } from "/$/system/static/html-hc/lib/widget/index.mjs";
 import HCTSBrandedPopup  from "/$/system/static/html-hc/widgets/branded-popup/popup.mjs";
+import hcRpc from "/$/system/static/comm/rpc/aggregate-rpc.mjs";
 
 hc.importModuleCSS()
 
@@ -38,7 +38,7 @@ export default class ManageLanguages extends HCTSBrandedPopup {
             }
         );
 
-        /** @type  {[{code:string, label:string}]}*/ this.entries
+        /** @type  {{code:string, label:string}[]}*/ this.entries
         this.pluralWidgetProperty(
             {
                 selector: ['', ...LanguageEntry.classList].join('.'),
@@ -62,7 +62,7 @@ export default class ManageLanguages extends HCTSBrandedPopup {
                                     positive: `Delete It`,
                                     negative: `Go back`,
                                     execute: async () => {
-                                        await engTerminal.lang.deleteLanguage(langData.code)
+                                        await hcRpc.engTerminal.lang.deleteLanguage(langData.code)
                                         delete this.advancedThis.manager.statedata.strings[langData.code]
                                         this.advancedThis.manager.statedata.languages = this.advancedThis.manager.statedata.languages.filter(x => x.code !== langData.code)
                                     }
@@ -79,7 +79,7 @@ export default class ManageLanguages extends HCTSBrandedPopup {
         );
 
 
-        /** @type {[ActionButton]} */ this.actions
+        /** @type {ActionButton[]} */ this.actions
         this.pluralWidgetProperty(
             {
                 selector: ['', ...ActionButton.classList].join('.'),

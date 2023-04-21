@@ -5,7 +5,6 @@
  */
 
 import { PluginStatus } from "system/lib/libFaculty/plugin/types";
-import { AlarmObject } from "/$/system/static/html-hc/lib/alarm/alarm-types";
 
 
-type PluginFrontendData = AlarmObject<PluginStatus>
+type PluginFrontendData = htmlhc.lib.alarm.AlarmObject<PluginStatus>

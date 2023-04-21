@@ -64,7 +64,7 @@ export default class EngLangPublicMethods {
     /**
      * This method deletes multiple strings
      * @param {object} param0
-     * @param {[string]} param0.codes  The codes of the strings to be delete
+     * @param {string[]} param0.codes  The codes of the strings to be delete
      * @param {string} param0.lang The language from which the strings will be deleted
      * @returns {Promise<void>}
      */
@@ -85,13 +85,3 @@ async function checkPermissions(userid) {
         }
     )
 }
-
-/**
- * @type {[import("faculty/modernuser/permission/data/types.js").PermissionData]}
- */
-export const permissions = [
-    {
-        label: `Manage Platform Strings`,
-        name: 'permissions.engTerminal.lang.manage'
-    }
-]
