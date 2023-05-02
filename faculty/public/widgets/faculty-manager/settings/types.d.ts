@@ -4,8 +4,7 @@
  * This module contains type definitions for the widget
  */
 
-import { MultiFlexFormFieldData } from "/$/system/static/html-hc/widgets/multi-flex-form/types"
-
+import { Collection } from "mongodb"
 
 global {
     namespace faculty.managedsettings {
