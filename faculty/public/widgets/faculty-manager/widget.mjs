@@ -4,6 +4,7 @@
  */
 
 import setup from "./logic.mjs";
+import { handle } from "/$/system/static/errors/error.mjs";
 import { hc, Widget } from "/$/system/static/html-hc/lib/widget/index.mjs";
 import FileExplorer from "/$/system/static/html-hc/widgets/file-explorer/widget.mjs";
 
@@ -40,7 +41,7 @@ export default class FacultyManager extends Widget {
         this.explorer = new FileExplorer()
 
         this.waitTillDOMAttached().then(() => {
-            setup(this)
+            setup(this).catch(e => handle(e))
         })
 
 

@@ -11,11 +11,19 @@ import hcRpc from '/$/system/static/comm/rpc/aggregate-rpc.mjs';
 import { handle } from '/$/system/static/errors/error.mjs';
 
 /** @type {FacultyPublicInfo} */
-const map = (await (await fetch("/$/system/maps/faculties")).json())
+let map
+const getMap = async () => map ||= (await (await fetch("/$/system/maps/faculties")).json())
 
-const supportMap = await hcRpc.engTerminal.faculty.plugin.getFacultyCapabilities()
+let supportMap;
 
-const settingsMeta = await hcRpc.engTerminal.faculty.settings.getSettingsMetadata()
+/**
+ * Get map of how plugins are supported in various faculties
+ * @returns {Promise<import('system/base/plugin/types.js').PluginSupportMap>}
+ */
+const getSupportMap = async () => supportMap ||= await hcRpc.engTerminal.faculty.plugin.getFacultyCapabilities()
+
+
+const settingsMeta = async () => await hcRpc.engTerminal.faculty.settings.getSettingsMetadata()
 
 
 /**
@@ -26,11 +34,12 @@ const settingsMeta = await hcRpc.engTerminal.faculty.settings.getSettingsMetadat
 export default async function setup(widget) {
     widget.explorer.statedata.items = []
 
-    for (let faculty in map) {
-        facultyOptions(faculty, widget)
+    widget.explorer.statedata.current_path = ''
+
+    for (let faculty in await getMap()) {
+        await facultyOptions(faculty, widget)
     }
 
-    widget.explorer.statedata.current_path = ''
 }
 
 
@@ -51,11 +60,11 @@ async function facultyOptions(faculty, widget) {
             id: fOptsID,
             parent: '',
             icon: new URL('./res/faculty.png', import.meta.url,).href,
-            label: map[faculty].label
+            label: (await getMap())[faculty].label
         }
     );
 
-    const supportsPlugins = supportMap[faculty];
+    const supportsPlugins = await getSupportMap()[faculty];
 
 
     if (supportsPlugins) {
@@ -72,7 +81,7 @@ async function facultyOptions(faculty, widget) {
 
     //Now, the logic for managing faculty settings
 
-    const thisSettings = settingsMeta.find(x => x.name === faculty)
+    const thisSettings = (await settingsMeta()).find(x => x.name === faculty)
 
     const thisFacultySettingsID = `${faculty}$engTerminal-settings`;
 
