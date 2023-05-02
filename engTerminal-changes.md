@@ -1,3 +1,5 @@
 .
 
-Improved error management
+Corrected minor bug in the front end.
+
+Removed unnecessary logging

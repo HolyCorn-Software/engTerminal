@@ -64,7 +64,7 @@ async function facultyOptions(faculty, widget) {
         }
     );
 
-    const supportsPlugins = await getSupportMap()[faculty];
+    const supportsPlugins = (await getSupportMap())[faculty];
 
 
     if (supportsPlugins) {
@@ -85,7 +85,6 @@ async function facultyOptions(faculty, widget) {
 
     const thisFacultySettingsID = `${faculty}$engTerminal-settings`;
 
-    console.log(`thisSettings is `, thisSettings)
     if (thisSettings) {
         widget.explorer.statedata.items.push(
             {
