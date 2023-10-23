@@ -1,5 +1,3 @@
 .
 
-Corrected minor bug in the front end.
-
-Removed unnecessary logging
+Added caching directives, to improve user experience, for admins who manage system settings.

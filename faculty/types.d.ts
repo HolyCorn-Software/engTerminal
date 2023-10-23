@@ -13,4 +13,6 @@ global {
             'permissions.engTerminal.faculty.manage': true
         }
     }
+
+    type GetFxnParams<T> = T extends (...args: infer ArgType) => any ? ArgType : T
 }

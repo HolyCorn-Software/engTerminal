@@ -95,11 +95,23 @@ class RecursiveProxy {
 
                 //Every method being called must be authenticated
                 await checkPermissions(inputMain[0])
-                
+
 
                 //Now, let's actually call the method
                 //We're using this conditional because we cannot apply() remote methods (Function.prototype.apply)
-                return await (isInternal ? fxn.apply(_nwThisArg, argArray) : fxn(...argArray));
+                const response = await (isInternal ? fxn.apply(_nwThisArg, argArray) : fxn(...argArray));
+                if ((properties.at(-1) == 'set') || (properties.at(-1) == 'clear')) {
+                    // Then the admin just set a new setting.
+                    // In that case, clear the admin's cache of any old entries of the given setting.
+                    // This is based on the assumption, that the entry is tag like faculty.managedsettings.<namespace>.<name>
+                    /** @type {GetFxnParams<fxn['set']>['1']} */
+                    const params = argArray[1]
+                    return new JSONRPC.MetaObject(response, {
+                        rmCache: [`faculty.managedsettings.${argArray[0]}.${params?.namespace}.${params?.name}`]
+                    })
+                }
+
+                return response
             }
         })
 
