@@ -39,18 +39,15 @@ export default class CredentialsInputPopup extends PopupForm {
 
     async getCredentials() {
 
-        try {
-            await this.loadWhilePromise(
-                (
-                    async () => {
-                        const credentials = await hcRpc.engTerminal.faculty.plugin.getCredentials({ faculty: this[plugin].descriptor.faculty, plugin: this[plugin].descriptor.name })
-                        this.value = credentials || {}
-                    }
-                )()
-            )
-        } catch (e) {
-            handle(e)
-        }
+        await this.blockWithAction(
+
+            async () => {
+                const credentials = await hcRpc.engTerminal.faculty.plugin.getCredentials({ faculty: this[plugin].descriptor.faculty, plugin: this[plugin].descriptor.name })
+                setTimeout(() => this.value = credentials || {}, 1000)
+            }
+
+        )
+
 
     }
 

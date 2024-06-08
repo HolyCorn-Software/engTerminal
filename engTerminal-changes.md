@@ -1,3 +1,3 @@
 .
 
-Added caching directives, to improve user experience, for admins who manage system settings.
+Improved plugin credential input widget.
